@@ -19,7 +19,6 @@ include("header.php");
                                 <tr>
                                     <th class="text-center">Usuario</th>
                                     <th class="text-center">Nombre</th>
-                                    <th class="text-center">Cargo</th>
                                     <th class="text-center">Fecha Registro</th>
                                     <th class="text-center">Acciones</th>
                                 </tr>
@@ -33,7 +32,6 @@ include("header.php");
                                     <tr class='text-center tr_edit' data-href="update_user.php?id_usuario=<?= $usuario['id'] ?>">
                                         <td style="vertical-align: middle;"> <?= $usuario['usuario'] ?> </td>
                                         <td style="vertical-align: middle;"> <?= $usuario['nombre'] ?> </td>
-                                        <td style="vertical-align: middle;"> <?= $usuario['cargo'] ?> </td>
                                         <td style="vertical-align: middle;">
                                             <div><?= $fecha ?></div>
                                             <div class="hora"><?= $hora ?></div>
@@ -78,7 +76,6 @@ include("header.php");
                         </div>
                         <div class="carnet-info">
                             <h2 id="modalNombre"></h2>
-                            <div class="cargo" id="modalCargo"></div>
                         </div>
                         <div class="carnet-barcode">
                             <svg id="barcode"></svg>
@@ -105,7 +102,6 @@ include("header.php");
                 let cargo = this.getAttribute("data-cargo");
 
                 document.getElementById("modalNombre").innerText = nombre;
-                document.getElementById("modalCargo").innerText = cargo;
 
                  // Limpiar código de barras previo
                 document.getElementById("barcode").innerHTML = "";
@@ -130,63 +126,58 @@ include("header.php");
                 <head>
                     <title>Imprimir Carnet</title>
                     <style>
+                    @font-face {
+                        font-family: 'Nunito';
+                        src: url('fonts/Nunito-Regular.ttf') format('truetype'),
+                            url('fonts/Nunito-Bold.ttf') format('truetype');
+                        font-weight: normal;
+                        font-style: normal;
+                    }
                     body { 
                         text-align: center; 
-                        font-family: Arial, sans-serif; 
-                        margin: 0; 
-                        padding: 0; 
+                        font-family: 'Nunito';
                     }
                     .carnet { 
-                        width: 90mm;
-                        height: 65mm;
+                        width: 89mm;
+                        height: 60mm;
                         background-image: url('images/fondo_carnet-recor.png'); 
                         background-size: cover;
                         background-position: center;
                         background-repeat: no-repeat;
-                        
                         text-align: center;
                         margin: auto;
                         position: relative;
                     }
-                    h2 {
-                        font-size: 20px;
+                    
+                    #modalNombre {
+                        font-size: 6mm;
                         font-weight: 600;
-                        margin-bottom: 0;
-                        margin-top: 20px;
+                        padding-bottom: 0;
                     }
-                    .cargo {
-                        font-size: 15px;
-                        margin-bottom: 0;
+                    h2 {
+                        font-size: 20mm;
+                        font-weight: 600;
+                        margin-bottom: 0 !important;
+                        padding-bottom: 0;
+                        padding-top: 8mm;
                     }
-                    .carnet-barcode {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        width: 100%;
-                        height: auto;
-                        margin: 0; 
-                        padding: 0; 
-                    }
-                    svg { 
-                        width: 100%;
-                        margin: 0 !important;
-                        padding: 0 !important;
-                        display: block; /* Evita espacios extra */
+                    svg {
+                        height: 30mm;
+                        width: 89mm;
                     }
                     .carnet-header {
                         position: absolute;
-                        top: 26px;
-                        left: 20px;
+                        top: 7mm;
+                        left: 5mm;
                     }
                     .carnet-logo {
-                        width: 40px;
-                        height: 40px;
+                        height: 10mm;
                     }
                     .carnet-logo-right {
                         position: absolute;
-                        bottom: 30px;
-                        right: 22px;
-                        height: 50px;
+                        bottom: 6mm;
+                        right: 3mm;
+                        height: 11mm;
                     }
                     @media print {
                         body {
@@ -195,9 +186,6 @@ include("header.php");
                         }
                         .carnet {
                             page-break-inside: avoid;
-                        }
-                        svg { 
-                            margin-bottom: 0 !important;
                         }
                     }
                     </style>

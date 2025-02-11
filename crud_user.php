@@ -7,9 +7,16 @@
     $read_users->execute();
     $lista_usuarios = $read_users->fetchAll(PDO::FETCH_ASSOC);
 
-    // Generar contraseña aleatoria de 15 caracteres (letras y números)
     function generarContrasena() {
-        return substr(bin2hex(random_bytes(8)), 0, 15);
+        $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $longitud = 15;
+        $contrasena = '';
+
+        for ($i = 0; $i < $longitud; $i++) {
+            $contrasena .= $caracteres[random_int(0, strlen($caracteres) - 1)];
+        }
+    
+        return $contrasena;
     }
 
     // Agregar Usuario
