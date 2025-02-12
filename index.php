@@ -63,7 +63,7 @@ include("header.php");
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="barcodeModalLabel">CARNET</h5>
+                <h5 class="modal-title fw-bold text-arabito" id="barcodeModalLabel">CARNET</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -209,8 +209,8 @@ include("header.php");
         Swal.fire({
             title: '¿Estás seguro de eliminar el usuario?',
             showCancelButton: true,
-            confirmButtonColor: "#304FFE",
-            confirmButtonText: 'Aceptar'
+            confirmButtonColor: "#eb6f22",
+            confirmButtonText: 'Aceptar',
         }).then((result) => {
             if (result.isConfirmed) {
                 window.location = "crud_user.php?userId=" + id;

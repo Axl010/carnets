@@ -42,6 +42,9 @@ div.dataTables_wrapper div.dataTables_info {
     padding-bottom: .4em;
 }
 
+select.form-selected.form-select-sm:focus {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
 /* Botones "Anterior" y "Siguiente" */
 div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     margin-top: 10px;
