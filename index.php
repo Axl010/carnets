@@ -4,8 +4,8 @@ include("header.php");
 ?>
 <section class="col-md-10 mx-auto my-4">
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-center ml-3">
-        <h2 class="mb-4 mb-md-0 h3 text-center">Usuarios</h2>
-        <a href="create_user.php" class="btn btn-dark btn-sm info" tabindex="1">Agregar Usuario</a>
+        <h2 class="mb-4 mb-md-0 h3 text-center fw-bold text-arabito">Usuarios</h2>
+        <a href="create_user.php" class="btn btn-agregar btn-sm info" tabindex="1"><i class="fa fa-plus me-1"></i>Agregar Usuario</a>
     </div>
 </section>
 <section class="content">
@@ -15,7 +15,7 @@ include("header.php");
                 <div class="container-fluid my-3">
                     <div class="table-responsive">
                         <table id="table" class="table table-hover nowrap custom-table" cellspacing="0" style="width:100%">
-                            <thead class="table-primary">
+                            <thead class="table-danger">
                                 <tr>
                                     <th class="text-center">Usuario</th>
                                     <th class="text-center">Nombre</th>
@@ -37,7 +37,7 @@ include("header.php");
                                             <div class="hora"><?= $hora ?></div>
                                         </td>
                                         <td style="vertical-align: middle;">
-                                            <button class="btn btn-primary btn-sm btn-barcode" 
+                                            <button class="btn btn-arabito btn-sm btn-barcode" 
                                                     data-usuario="<?= $usuario['usuario'] ?>" 
                                                     data-password="<?= $usuario['password'] ?>" 
                                                     data-nombre="<?= $usuario['nombre'] ?>"
@@ -86,7 +86,7 @@ include("header.php");
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button class="btn btn-imprimir" onclick="imprimirCarnet()">Imprimir Carnet</button>
+                <button class="btn btn-arabito" onclick="imprimirCarnet()">Imprimir Carnet</button>
             </div>
         </div>
     </div>
@@ -153,6 +153,7 @@ include("header.php");
                         font-size: 6mm;
                         font-weight: 600;
                         padding-bottom: 0;
+                        text-transform: uppercase;
                     }
                     h2 {
                         font-size: 20mm;

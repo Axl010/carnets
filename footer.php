@@ -11,6 +11,8 @@
     <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
     <!--Sweet Alert-->
     <script src="plugins/sweetalert2/sweetalert2.all.min.js"></script>
+    <!--Validaciom-->
+    <script src="js/validacion.js"></script>
 
     <!-- Mensaje -->
     <?php                  

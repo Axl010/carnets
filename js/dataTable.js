@@ -1,12 +1,13 @@
 $(document).ready(function () {
     $('#table').DataTable({
-        "pageLength": 10,
+        "pageLength": 5,
         "lengthMenu": [
             [5, 10, 25, 50, 100],
             [5, 10, 25, 50, 100]
         ],
         "order": [], // Desactiva el ordenamiento automático
         "responsive": true,
+        "pagingType": "simple_numbers", // Evita los estilos de Bootstrap en la paginación
         language: {
             "url": "plugins/datatable/es-Es.json"
         }

@@ -11,11 +11,9 @@
         $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $longitud = 15;
         $contrasena = '';
-
         for ($i = 0; $i < $longitud; $i++) {
             $contrasena .= $caracteres[random_int(0, strlen($caracteres) - 1)];
         }
-    
         return $contrasena;
     }
 
@@ -24,7 +22,7 @@
         try {
             $nombre = $_POST['nombre']; 
             $usuario = $_POST['usuario'];
-            $contrasena = generarContrasena();
+            $contrasena = (!empty($_POST['contrasena'])) ? $_POST['contrasena'] : generarContrasena();
             $cargo = $_POST['cargo'];
 
             $insert_user = $conexion->prepare("INSERT INTO usuarios(nombre, usuario, password, cargo) 
@@ -59,11 +57,14 @@
         try {
             $nombre = $_POST['nombre'];
             $usuario = $_POST['usuario'];
+            $contrasena = (!empty($_POST['contrasena'])) ? $_POST['contrasena'] : $usuario_data['password'];   
             $cargo = $_POST['cargo'];
 
-            $update_user = $conexion->prepare("UPDATE usuarios SET nombre = :nombre, usuario = :usuario, cargo = :cargo WHERE id = :id");
+            $update_user = $conexion->prepare(" UPDATE usuarios SET nombre = :nombre, usuario = :usuario, 
+                                                password = :contrasena, cargo = :cargo WHERE id = :id");
             $update_user->bindParam(":nombre", $nombre);
             $update_user->bindParam(":usuario", $usuario);
+            $update_user->bindParam(":contrasena", $contrasena);
             $update_user->bindParam(":cargo", $cargo);
             $update_user->bindParam(":id", $id_usuario);
             $update_user->execute();
@@ -74,21 +75,6 @@
         }
 
         header("Location: index.php?mensaje=" . urlencode($mensaje));
-    }
-    
-    // Eliminar Usuario
-    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id_user'])) {
-        try {
-            $id_usuario = $_POST['id_user'];
-            $delete_user = $conexion->prepare("DELETE FROM usuarios WHERE id = :id_usuario");
-            $delete_user->bindParam(":id_usuario", $id_usuario);
-            $delete_user->execute();
-            $mensaje = "Usuario eliminado exitosamente";
-        } catch(Exception $e) {
-            $mensaje = "Error al eliminar: " . $e->getMessage();
-        }
-        header("Location: index.php?mensaje=" . urlencode($mensaje));
-        exit();
     }
 
     //Eliminar Usuario

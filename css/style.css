@@ -7,9 +7,64 @@
 }
 
 /* --------------------------------------------------------- */
+/* Texto y botn personalizado */
+.text-arabito {
+    color: #eb6f22;
+}
+.btn-arabito {
+    background-color: #eb6f22 !important;
+    color: #fff;
+}
+.btn-arabito:hover {
+    background-color: #d8641d !important;
+    color: #fff;
+}
+.btn-agregar {
+    background-color: #e14324 !important;
+    color: #fff !important;
+}
+.btn-agregar:hover {
+    background-color: #c4452c !important;
+}
+
+/* --------------------------------------------------------- */
 /* Tabla */
 .tr_edit {
     cursor: pointer;
+}
+
+div#table_length {
+    margin: 2px 0 10px 0;
+}
+/* Info de registros */
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: 1em;
+    padding-bottom: .4em;
+}
+
+/* Botones "Anterior" y "Siguiente" */
+div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+    margin-top: 10px;
+}
+.pagination > li > a, .pagination > li > span{
+    color:#000000a4;
+    font-weight: bold;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.pagination > li > a:hover, .pagination > li > span{
+    color:#000000a4;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+.pagination > li.active > a, .pagination:active > li.active > span:active{
+    background-color:#eb6f22;
+    border-color: transparent;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.pagination > li.previous > a, .pagination > li.next > a {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.pagination > li.previous:hover > a, .pagination > li.next:hover > a {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* --------------------------------------------------------- */
@@ -25,8 +80,8 @@
 }
 
 .button-back:hover {
-    color: inherit;
-    background-color: #cad0d4;
+    color: #fff;
+    background-color: #eb6f22;
 }
 
 .card-body select, .card-body textarea, .card-body input {
@@ -57,43 +112,41 @@ label {
 /* --------------------------------------------------------- */
 /* Carnet */
 body { 
-    font-family: Arial, sans-serif; 
+    font-family: 'Nunito', sans-serif; 
     margin: 0; 
     padding: 0; 
 }
 .carnet { 
     width: 450px;
-    height: 350px;
+    height: 280px;
     background-image: url('../images/fondo_carnet-recor.png'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border: 2px solid #000000b1;
     border-radius: 10px;
-    padding: 15px;
     text-align: center;
-    margin: auto;
     position: relative;
 }
-
 #modalCargo {
     font-size: 15px;
     margin-bottom: 20px;
-}
-br {
-    height: 2mm !important;
 }
 .carnet-barcode {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: 10px 0 0 0;
+}
+#modalNombre {
+    font-size: 28px;
+    font-weight: 600;
+    padding-top: 26px;
+    text-transform: uppercase;
 }
 svg { 
     width: 100%;
-    height: 120px;
-    margin-bottom: 0;
+    height: 140px;
 }
 .carnet-header {
     position: absolute;
@@ -106,18 +159,9 @@ svg {
 }
 .carnet-logo-right {
     position: absolute;
-    bottom: 60px;
+    bottom: 20px;
     right: 22px;
-    width: 100px;
     height: 50px;
-}
-.btn-imprimir {
-    color: #fff !important;
-    background: #ec6e25 !important;
-}
-
-.btn-imprimir:hover {
-    background: #d76523 !important;
 }
 
 /* --------------------------------------------------------- */
@@ -125,10 +169,9 @@ svg {
 .close {
     border: none;
     border-radius: 8px;
-    background-color: #ec6e25;
+    background-color: #eb6f22;
     color: #fff;
 }
-
 .close span {
     font-size: 20px;
 }
