@@ -17,6 +17,10 @@
         return $contrasena;
     }
 
+    function validarContrasena($contrasena) {
+        return preg_match('/^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ]{15}$/u', $contrasena);
+    }
+
     // Agregar Usuario
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create_usuario'])){
         try {
@@ -24,6 +28,10 @@
             $usuario = $_POST['usuario'];
             $contrasena = (!empty($_POST['contrasena'])) ? $_POST['contrasena'] : generarContrasena();
             $cargo = $_POST['cargo'];
+
+            if (!empty($_POST['contrasena']) && !validarContrasena($contrasena)) {
+                throw new Exception("La contraseña debe tener exactamente 15 caracteres y solo contener letras y números.");
+            }
 
             $insert_user = $conexion->prepare("INSERT INTO usuarios(nombre, usuario, password, cargo) 
                                                 VALUES (:nombre, :usuario, :contrasena, :cargo)");
@@ -60,6 +68,10 @@
             $contrasena = (!empty($_POST['contrasena'])) ? $_POST['contrasena'] : $usuario_data['password'];   
             $cargo = $_POST['cargo'];
 
+            if (!empty($_POST['contrasena']) && !validarContrasena($contrasena)) {
+                throw new Exception("La contraseña debe tener exactamente 15 caracteres y solo contener letras y números.");
+            }   
+
             $update_user = $conexion->prepare(" UPDATE usuarios SET nombre = :nombre, usuario = :usuario, 
                                                 password = :contrasena, cargo = :cargo WHERE id = :id");
             $update_user->bindParam(":nombre", $nombre);
@@ -73,7 +85,6 @@
         } catch(Exception $e) {
             $mensaje = "Error al editar el usuario";
         }
-
         header("Location: index.php?mensaje=" . urlencode($mensaje));
     }
 

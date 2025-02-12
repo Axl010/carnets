@@ -39,7 +39,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="contrasena" class="form-label mt-2">Contraseña</label>
-                                <input type="password" class="form-control form-control-sm mb-2" name="contrasena" id="contrasena" tabindex="3"/>
+                                <input type="password" class="form-control form-control-sm mb-2" name="contrasena" id="contrasena" pattern="^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ]{15}$" tabindex="3"/>
+                                <div id="passwordFeedback" class="invalid-feedback">
+                                    Debe contener 15 caracteres(letras y números).
+                                </div>
                             </div>
                         </div><!--/.card body -->
                     </div>    
@@ -66,4 +69,6 @@
         </form>
     </div>
 </section><!-- /.content -->
+
+
 <?php include("footer.php")?>
