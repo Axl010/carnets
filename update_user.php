@@ -52,6 +52,37 @@
                                     <option value="Supervisora" <?= (isset($usuario_data['cargo']) && $usuario_data['cargo'] == 'Supervisora') ? 'selected' : '' ?>>Supervisora</option>
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="sucursal" class="form-label bold">Sucursal *</label>
+                                <select class="form-select form-select-sm mb-2" id="sucursal" name="sucursal" tabindex="4" required>
+                                    <option value="turen" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'turen') ? 'selected' : '' ?>>turen</option>
+                                    <option value="altagraciadeorituco" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'altagraciadeorituco') ? 'selected' : '' ?>>altagraciadeorituco</option>
+                                    <option value="sansebastian" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'sansebastian') ? 'selected' : '' ?>>sansebastian</option>
+                                    <option value="elsombrero" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'elsombrero') ? 'selected' : '' ?>>elsombrero</option>
+                                    <option value="galponvalencia1" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'galponvalencia1') ? 'selected' : '' ?>>galponvalencia1</option>
+                                    <option value="tinaquillo" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'tinaquillo') ? 'selected' : '' ?>>tinaquillo</option>
+                                    <option value="tocuyito" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'tocuyito') ? 'selected' : '' ?>>tocuyito</option>
+                                    <option value="guacara" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'guacara') ? 'selected' : '' ?>>guacara</option>
+                                    <option value="maracay" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'maracay') ? 'selected' : '' ?>>maracay</option>
+                                    <option value="sanjuandelosmorros" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'sanjuandelosmorros') ? 'selected' : '' ?>>sanjuandelosmorros</option>
+                                    <option value="sanjuandelosmorros2" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'sanjuandelosmorros2') ? 'selected' : '' ?>>sanjuandelosmorros2</option>
+                                    <option value="valledelapascua" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'valledelapascua') ? 'selected' : '' ?>>valledelapascua</option>
+                                    <option value="valledelapascua2" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'valledelapascua2') ? 'selected' : '' ?>>valledelapascua2</option>
+                                    <option value="zaraza" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'zaraza') ? 'selected' : '' ?>>zaraza</option>
+                                    <option value="anaco" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'anaco') ? 'selected' : '' ?>>anaco</option>
+                                    <option value="calabozo" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'calabozo') ? 'selected' : '' ?>>calabozo</option>
+                                    <option value="camaguan" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'camaguan') ? 'selected' : '' ?>>camaguan</option>
+                                    <option value="sanfernando1" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'sanfernando1') ? 'selected' : '' ?>>sanfernando1</option>
+                                    <option value="sanfernando2" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'sanfernando2') ? 'selected' : '' ?>>sanfernando2</option>
+                                    <option value="sanfernando3" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'sanfernando3') ? 'selected' : '' ?>>sanfernando3</option>
+                                    <option value="achaguas" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'achaguas') ? 'selected' : '' ?>>achaguas</option>
+                                    <option value="elsaman" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'elsaman') ? 'selected' : '' ?>>elsaman</option>
+                                    <option value="mantecal" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'mantecal') ? 'selected' : '' ?>>mantecal</option>
+                                    <option value="elorza" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'elorza') ? 'selected' : '' ?>>elorza</option>
+                                    <option value="bruzual" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'bruzual') ? 'selected' : '' ?>>bruzual</option>
+                                    <option value="administracion" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'administracion') ? 'selected' : '' ?>>administracion</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="d-flex flex-row-reverse mt-4">

@@ -19,6 +19,7 @@ include("header.php");
                                 <tr>
                                     <th class="text-center">Usuario</th>
                                     <th class="text-center">Nombre</th>
+                                    <th class="text-center">Sucursal</th>
                                     <th class="text-center">Fecha Registro</th>
                                     <th class="text-center">Acciones</th>
                                 </tr>
@@ -32,6 +33,7 @@ include("header.php");
                                     <tr class='text-center tr_edit' data-href="update_user.php?id_usuario=<?= $usuario['id'] ?>">
                                         <td style="vertical-align: middle;"> <?= $usuario['usuario'] ?> </td>
                                         <td style="vertical-align: middle;"> <?= $usuario['nombre'] ?> </td>
+                                        <td style="vertical-align: middle;"> <?= $usuario['sucursal'] ?> </td>
                                         <td style="vertical-align: middle;">
                                             <div><?= $fecha ?></div>
                                             <div class="hora"><?= $hora ?></div>
@@ -150,9 +152,10 @@ include("header.php");
                     }
                     
                     #modalNombre {
-                        font-size: 6mm;
+                        font-size: 5mm;
                         font-weight: 600;
                         padding-bottom: 0;
+                        padding-top: 8.5mm;
                         text-transform: uppercase;
                     }
                     h2 {

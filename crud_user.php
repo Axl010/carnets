@@ -28,17 +28,19 @@
             $usuario = $_POST['usuario'];
             $contrasena = (!empty($_POST['contrasena'])) ? $_POST['contrasena'] : generarContrasena();
             $cargo = $_POST['cargo'];
+            $sucursal = $_POST['sucursal'];
 
             if (!empty($_POST['contrasena']) && !validarContrasena($contrasena)) {
                 throw new Exception("La contraseña debe tener exactamente 15 caracteres y solo contener letras y números.");
             }
 
-            $insert_user = $conexion->prepare("INSERT INTO usuarios(nombre, usuario, password, cargo) 
-                                                VALUES (:nombre, :usuario, :contrasena, :cargo)");
+            $insert_user = $conexion->prepare("INSERT INTO usuarios(nombre, usuario, password, cargo, sucursal) 
+                                                VALUES (:nombre, :usuario, :contrasena, :cargo, :sucursal)");
             $insert_user->bindParam(":nombre", $nombre);
             $insert_user->bindParam(":usuario", $usuario);
             $insert_user->bindParam(":contrasena", $contrasena);
             $insert_user->bindParam(":cargo", $cargo);
+            $insert_user->bindParam(":sucursal", $sucursal);
             $insert_user->execute();
             $mensaje = "Usuario agregado exitosamente";
         } catch(Exception $e) {
@@ -67,17 +69,19 @@
             $usuario = $_POST['usuario'];
             $contrasena = (!empty($_POST['contrasena'])) ? $_POST['contrasena'] : $usuario_data['password'];   
             $cargo = $_POST['cargo'];
+            $sucursal = $_POST['sucursal'];
 
             if (!empty($_POST['contrasena']) && !validarContrasena($contrasena)) {
                 throw new Exception("La contraseña debe tener exactamente 15 caracteres y solo contener letras y números.");
             }   
 
-            $update_user = $conexion->prepare(" UPDATE usuarios SET nombre = :nombre, usuario = :usuario, 
-                                                password = :contrasena, cargo = :cargo WHERE id = :id");
+            $update_user = $conexion->prepare(" UPDATE usuarios SET nombre = :nombre, usuario = :usuario,
+                                                password = :contrasena, cargo = :cargo, sucursal = :sucursal WHERE id = :id");
             $update_user->bindParam(":nombre", $nombre);
             $update_user->bindParam(":usuario", $usuario);
             $update_user->bindParam(":contrasena", $contrasena);
             $update_user->bindParam(":cargo", $cargo);
+            $update_user->bindParam(":sucursal", $sucursal);
             $update_user->bindParam(":id", $id_usuario);
             $update_user->execute();
 

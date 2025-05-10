@@ -56,6 +56,38 @@
                                 <select class="form-select form-select-sm mb-2" id="cargo" name="cargo" tabindex="4" required>
                                     <option value="Gerente" selected>Gerente</option>
                                     <option value="Supervisora">Supervisora</option>
+                                    <option value="Cajera">Cajera</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="sucursal" class="form-label bold">Sucursal *</label>
+                                <select class="form-select form-select-sm mb-2" id="sucursal" name="sucursal" tabindex="4" required>
+                                    <option value="turen">turen</option>
+                                    <option value="altagraciadeorituco">altagraciadeorituco</option>
+                                    <option value="sansebastian">sansebastian</option>
+                                    <option value="elsombrero">elsombrero</option>
+                                    <option value="galponvalencia1">galponvalencia1</option>
+                                    <option value="tinaquillo">tinaquillo</option>
+                                    <option value="tocuyito">tocuyito</option>
+                                    <option value="guacara">guacara</option>
+                                    <option value="maracay">maracay</option>
+                                    <option value="sanjuandelosmorros">sanjuandelosmorros</option>
+                                    <option value="sanjuandelosmorros2">sanjuandelosmorros2</option>
+                                    <option value="valledelapascua">valledelapascua</option>
+                                    <option value="valledelapascua2">valledelapascua2</option>
+                                    <option value="zaraza">zaraza</option>
+                                    <option value="anaco">anaco</option>
+                                    <option value="calabozo">calabozo</option>
+                                    <option value="camaguan">camaguan</option>
+                                    <option value="sanfernando1">sanfernando1</option>
+                                    <option value="sanfernando2">sanfernando2</option>
+                                    <option value="sanfernando3">sanfernando3</option>
+                                    <option value="achaguas">achaguas</option>
+                                    <option value="elsaman">elsaman</option>
+                                    <option value="mantecal">mantecal</option>
+                                    <option value="elorza">elorza</option>
+                                    <option value="bruzual">bruzual</option>
+                                    <option value="administracion">administracion</option>
                                 </select>
                             </div>
                         </div>

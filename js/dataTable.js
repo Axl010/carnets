@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $('#table').DataTable({
-        "pageLength": 5,
+        "pageLength": 25,
         "lengthMenu": [
             [5, 10, 25, 50, 100],
             [5, 10, 25, 50, 100]
