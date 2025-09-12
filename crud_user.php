@@ -3,19 +3,11 @@
     $objeto = new Conexion();
     $conexion = $objeto->Conectar();
 
-    $read_users = $conexion->prepare("SELECT * FROM usuarios");
+    $read_users = $conexion->prepare("SELECT * FROM usuarios ORDER BY id DESC");
     $read_users->execute();
     $lista_usuarios = $read_users->fetchAll(PDO::FETCH_ASSOC);
 
-    function generarContrasena() {
-        $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $longitud = 15;
-        $contrasena = '';
-        for ($i = 0; $i < $longitud; $i++) {
-            $contrasena .= $caracteres[random_int(0, strlen($caracteres) - 1)];
-        }
-        return $contrasena;
-    }
+
 
     function validarContrasena($contrasena) {
         return preg_match('/^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ]{15}$/u', $contrasena);
@@ -26,11 +18,15 @@
         try {
             $nombre = $_POST['nombre']; 
             $usuario = $_POST['usuario'];
-            $contrasena = (!empty($_POST['contrasena'])) ? $_POST['contrasena'] : generarContrasena();
+            $contrasena = $_POST['contrasena'];
             $cargo = $_POST['cargo'];
             $sucursal = $_POST['sucursal'];
 
-            if (!empty($_POST['contrasena']) && !validarContrasena($contrasena)) {
+            if (empty($contrasena)) {
+                throw new Exception("La contraseña es obligatoria.");
+            }
+
+            if (!validarContrasena($contrasena)) {
                 throw new Exception("La contraseña debe tener exactamente 15 caracteres y solo contener letras y números.");
             }
 

@@ -9,6 +9,8 @@
     <!-- Bootstrap core JavaScript-->
     <script src="plugins/bootstrap/js/popper.min.js"></script>
     <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Carnet (depende de jQuery y Bootstrap) -->
+    <script src="js/carnet.js"></script>
     <!--Sweet Alert-->
     <script src="plugins/sweetalert2/sweetalert2.all.min.js"></script>
     <!--Validaciom-->

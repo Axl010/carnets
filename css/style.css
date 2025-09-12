@@ -31,6 +31,25 @@
     background-color: #c4452c !important;
 }
 
+/* Header claro personalizado */
+.header-light {
+    background-color: #e95d45; /* más claro que #e14324 */
+    color: #fff;
+}
+.header-light .navbar-brand,
+.header-light .nav-link,
+.header-light .nav-link:focus,
+.header-light .nav-link:hover {
+    color: #fff;
+}
+
+/* Centrar título en header */
+.brand-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 /* --------------------------------------------------------- */
 /* Tabla */
 .tr_edit {
@@ -182,4 +201,51 @@ svg {
 }
 .close span {
     font-size: 20px;
+}
+
+/* --------------------------------------------------------- */
+/* Modal y Carnet en móviles */
+@media (max-width: 576px) {
+    /* Ajuste del ancho del modal en móvil */
+    #barcodeModal .modal-dialog {
+        max-width: 320px;
+        width: calc(100% - 2rem);
+        margin: 1rem auto;
+    }
+
+    #barcodeModal .modal-body {
+        padding: 12px;
+    }
+
+    /* Escalar el carnet dentro del modal */
+    #barcodeModal .carnet {
+        width: 290px;
+        height: 190px;
+        border-width: 1px;
+    }
+
+    #barcodeModal #modalNombre {
+        font-size: 16px;
+        padding-top: 19px;
+    }
+
+    #barcodeModal .carnet-header {
+        top: 10px;
+        left: 10px;
+    }
+
+    #barcodeModal .carnet-logo {
+        width: 28px;
+        height: 28px;
+    }
+
+    #barcodeModal .carnet-logo-right {
+        height: 34px;
+        right: 8px;
+        bottom: 10px;
+    }
+
+    #barcodeModal .carnet-barcode svg {
+        height: 80px;
+    }
 }

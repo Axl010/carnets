@@ -13,16 +13,17 @@ $(document).ready(function () {
         }
     });
     
-    // Evento para redirigir al hacer clic en una fila
+    // Evento para redirigir al hacer clic en una fila (evitar interceptar botones y filas child)
     $('#table tbody').on('click', 'tr', function (e) {
-        // Ignorar clics en enlaces, imágenes, o el botón "+" de DataTables
-        if ($(e.target).closest('td a, td button, td img, .dtr-control').length) {
+        // Ignorar si el click viene desde controles, botones o dentro de filas .child (responsive)
+        if (
+            $(e.target).closest('a, button, img, .btn-barcode, .dtr-control').length ||
+            $(this).hasClass('child')
+        ) {
             return;
         }
 
-        // Redirigir a la URL especificada en el atributo data-href
         const href = $(this).data('href');
-        console.log(`Redirigiendo a: ${href}`); // Para depuración
         if (href) {
             window.location.href = href;
         }

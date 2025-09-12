@@ -39,7 +39,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="contrasena" class="form-label mt-2">Contraseña</label>
-                                <input type="password" class="form-control form-control-sm mb-2" name="contrasena" id="contrasena" pattern="^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ]{15}$" tabindex="3"/>
+                                <input type="text" class="form-control form-control-sm mb-2" name="contrasena" id="contrasena" pattern="^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ]{15}$" tabindex="3"/>
+                                <button type="button" class="btn btn-outline-secondary btn-sm mb-2" id="generarContrasena" title="Generar contraseña automática">
+                                    <i class="fas fa-key"></i> Generar
+                                </button>
                                 <div id="passwordFeedback" class="invalid-feedback">
                                     Debe contener 15 caracteres(letras y números).
                                 </div>
@@ -54,7 +57,8 @@
                             <div class="form-group">
                                 <label for="cargo" class="form-label bold">Cargo *</label>
                                 <select class="form-select form-select-sm mb-2" id="cargo" name="cargo" tabindex="4" required>
-                                    <option value="Gerente" selected>Gerente</option>
+                                    <option value="Gerente">Gerente</option>
+                                    <option value="Dici">Dici</option>
                                     <option value="Supervisora">Supervisora</option>
                                     <option value="Cajera">Cajera</option>
                                 </select>
@@ -87,6 +91,13 @@
                                     <option value="mantecal">mantecal</option>
                                     <option value="elorza">elorza</option>
                                     <option value="bruzual">bruzual</option>
+                                    <option value="carora">Carora</option>
+                                    <option value="pariaguan">Pariaguan</option>
+                                    <option value="cantaura">Cantaura</option>
+                                    <option value="sancarlos">San Carlos</option>
+                                    <option value="aragua">Aragua</option>
+                                    <option value="altagracia">Altagracia de Orituco</option>
+                                    <option value="puntademata">Punta de Mata</option>
                                     <option value="administracion">administracion</option>
                                 </select>
                             </div>

@@ -3,9 +3,9 @@ include("crud_user.php");
 include("header.php");
 ?>
 <section class="col-md-10 mx-auto my-4">
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center ml-3">
-        <h2 class="mb-4 mb-md-0 h3 text-center fw-bold text-arabito">Usuarios</h2>
-        <a href="create_user.php" class="btn btn-agregar btn-sm info" tabindex="1"><i class="fa fa-plus me-1"></i>Agregar Usuario</a>
+    <div class="d-flex justify-content-center align-items-center" style="gap:.75rem;">
+        <h2 class="h3 fw-bold text-arabito mb-0">Usuarios</h2>
+        <a href="create_user.php" class="btn btn-agregar btn-sm" tabindex="1"><i class="fa fa-plus me-1"></i>Agregar Usuario</a>
     </div>
 </section>
 <section class="content">
@@ -19,6 +19,7 @@ include("header.php");
                                 <tr>
                                     <th class="text-center">Usuario</th>
                                     <th class="text-center">Nombre</th>
+                                    <th class="text-center">Cargo</th>
                                     <th class="text-center">Sucursal</th>
                                     <th class="text-center">Fecha Registro</th>
                                     <th class="text-center">Acciones</th>
@@ -33,6 +34,7 @@ include("header.php");
                                     <tr class='text-center tr_edit' data-href="update_user.php?id_usuario=<?= $usuario['id'] ?>">
                                         <td style="vertical-align: middle;"> <?= $usuario['usuario'] ?> </td>
                                         <td style="vertical-align: middle;"> <?= $usuario['nombre'] ?> </td>
+                                        <td style="vertical-align: middle;"> <?= $usuario['cargo'] ?> </td>
                                         <td style="vertical-align: middle;"> <?= $usuario['sucursal'] ?> </td>
                                         <td style="vertical-align: middle;">
                                             <div><?= $fecha ?></div>
@@ -94,119 +96,120 @@ include("header.php");
     </div>
 </div>
 <script>
-    // Generar codigo de barra
-    document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll(".btn-barcode").forEach(button => {
-            button.addEventListener("click", function () {
-                let usuario = this.getAttribute("data-usuario");
-                let password = this.getAttribute("data-password");
-                let nombre = this.getAttribute("data-nombre");
-                let cargo = this.getAttribute("data-cargo");
+    // Generar código de barras (delegación para filas responsive/child)
+    $(function(){
+        $(document).on('click', '.btn-barcode', function(e){
+            e.preventDefault();
+            e.stopPropagation();
 
-                document.getElementById("modalNombre").innerText = nombre;
+            const usuario = $(this).data('usuario');
+            const password = $(this).data('password');
+            const nombre = $(this).data('nombre');
+            const cargo = $(this).data('cargo');
 
-                 // Limpiar código de barras previo
-                document.getElementById("barcode").innerHTML = "";
+            $('#modalNombre').text(nombre);
+            $('#barcode').empty();
 
-                JsBarcode("#barcode", `${password}`, {
-                    format: "CODE128",
-                    displayValue: false,
-                    lineColor: "#000",
-                    width: 3,
-                    height: 110
-                });
-                $('#barcodeModal').modal('show');
+            JsBarcode('#barcode', String(password), {
+                format: 'CODE128',
+                displayValue: false,
+                lineColor: '#000',
+                width: 3,
+                height: 110
             });
+            $('#barcodeModal').modal('show');
         });
     });
     function imprimirCarnet() {
-        let modalContent = document.querySelector("#barcodeModal .modal-body").cloneNode(true);
-        let printWindow = window.open("", "_blank");
+    let modalContent = document.querySelector("#barcodeModal .modal-body").cloneNode(true);
+    let printWindow = window.open("", "_blank");
 
-        printWindow.document.write(`
-            <html>
-                <head>
-                    <title>Imprimir Carnet</title>
-                    <style>
-                    @font-face {
-                        font-family: 'Nunito';
-                        src: url('fonts/Nunito-Regular.ttf') format('truetype'),
-                            url('fonts/Nunito-Bold.ttf') format('truetype');
-                        font-weight: normal;
-                        font-style: normal;
+    printWindow.document.write(`
+        <html>
+            <head>
+                <title>Imprimir Carnet</title>
+                <style>
+                @font-face {
+                    font-family: 'Nunito';
+                    src: url('fonts/Nunito-Regular.ttf') format('truetype'),
+                        url('fonts/Nunito-Bold.ttf') format('truetype');
+                    font-weight: normal;
+                    font-style: normal;
+                }
+                body { 
+                    text-align: center; 
+                    font-family: 'Nunito';
+                }
+                .carnet { 
+                    width: 89mm;
+                    height: 60mm;
+                    background-image: url('images/fondo_carnet-recor.png'); 
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    text-align: center;
+                    margin: auto;
+                    position: relative;
+                }
+                
+                #modalNombre {
+                    font-size: 5mm;
+                    font-weight: 600;
+                    padding-bottom: 0;
+                    padding-top: 8.5mm;
+                    text-transform: uppercase;
+                }
+                h2 {
+                    font-size: 20mm;
+                    font-weight: 600;
+                    margin-bottom: 0 !important;
+                    padding-bottom: 0;
+                    padding-top: 8mm;
+                }
+                svg {
+                    height: 30mm;
+                    width: 89mm;
+                }
+                .carnet-header {
+                    position: absolute;
+                    top: 7mm;
+                    left: 5mm;
+                }
+                .carnet-logo {
+                    height: 10mm;
+                }
+                .carnet-logo-right {
+                    position: absolute;
+                    bottom: 6mm;
+                    right: 3mm;
+                    height: 11mm;
+                }
+                @media print {
+                    body {
+                        -webkit-print-color-adjust: exact;
+                        print-color-adjust: exact;
                     }
-                    body { 
-                        text-align: center; 
-                        font-family: 'Nunito';
+                    .carnet {
+                        page-break-inside: avoid;
                     }
-                    .carnet { 
-                        width: 89mm;
-                        height: 60mm;
-                        background-image: url('images/fondo_carnet-recor.png'); 
-                        background-size: cover;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        text-align: center;
-                        margin: auto;
-                        position: relative;
-                    }
-                    
-                    #modalNombre {
-                        font-size: 5mm;
-                        font-weight: 600;
-                        padding-bottom: 0;
-                        padding-top: 8.5mm;
-                        text-transform: uppercase;
-                    }
-                    h2 {
-                        font-size: 20mm;
-                        font-weight: 600;
-                        margin-bottom: 0 !important;
-                        padding-bottom: 0;
-                        padding-top: 8mm;
-                    }
-                    svg {
-                        height: 30mm;
-                        width: 89mm;
-                    }
-                    .carnet-header {
-                        position: absolute;
-                        top: 7mm;
-                        left: 5mm;
-                    }
-                    .carnet-logo {
-                        height: 10mm;
-                    }
-                    .carnet-logo-right {
-                        position: absolute;
-                        bottom: 6mm;
-                        right: 3mm;
-                        height: 11mm;
-                    }
-                    @media print {
-                        body {
-                            -webkit-print-color-adjust: exact;
-                            print-color-adjust: exact;
-                        }
-                        .carnet {
-                            page-break-inside: avoid;
-                        }
-                    }
-                    </style>
-                </head>
-                <body>
-                    ${modalContent.outerHTML}
-                    <script>
-                        window.onload = function() {
+                }
+                </style>
+            </head>
+            <body>
+                ${modalContent.outerHTML}
+                <script>
+                    window.onload = function() {
+                        setTimeout(function() {
                             window.print();
                             window.close();
-                        };
-                    <\/script>
-                </body>
-            </html>
-        `);
-        printWindow.document.close();
-    }
+                        }, 500);
+                    };
+                <\/script>
+            </body>
+        </html>
+    `);
+    printWindow.document.close();
+}
     // Eliminar Usuario
     function eliminar(id) {
         Swal.fire({

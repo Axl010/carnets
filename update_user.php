@@ -33,7 +33,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="contrasena" class="form-label mt-2">Contraseña</label>
-                                <input type="password" class="form-control form-control-sm mb-2" name="contrasena" id="contrasena" pattern="^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ]{15}$" tabindex="3"/>
+                                <input type="text" class="form-control form-control-sm mb-2" name="contrasena" id="contrasena" value="<?= $usuario_data['password'] ?>" pattern="^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ]{15}$" tabindex="3"/>
                                 <div id="passwordFeedback" class="invalid-feedback">
                                     Debe contener 15 caracteres(letras y números).
                                 </div>
@@ -49,7 +49,9 @@
                                 <label for="cargo" class="form-label bold">Cargo *</label>
                                 <select class="form-select form-select-sm mb-2" id="cargo" name="cargo" tabindex="4" required>
                                     <option value="Gerente" <?= (isset($usuario_data['cargo']) && $usuario_data['cargo'] == 'Gerente') ? 'selected' : '' ?>>Gerente</option>
+                                    <option value="Dici" <?= (isset($usuario_data['cargo']) && $usuario_data['cargo'] == 'Dici') ? 'selected' : '' ?>>Dici</option>
                                     <option value="Supervisora" <?= (isset($usuario_data['cargo']) && $usuario_data['cargo'] == 'Supervisora') ? 'selected' : '' ?>>Supervisora</option>
+                                    <option value="Cajera" <?= (isset($usuario_data['cargo']) && $usuario_data['cargo'] == 'Cajera') ? 'selected' : '' ?>>Cajera</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -80,6 +82,13 @@
                                     <option value="mantecal" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'mantecal') ? 'selected' : '' ?>>mantecal</option>
                                     <option value="elorza" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'elorza') ? 'selected' : '' ?>>elorza</option>
                                     <option value="bruzual" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'bruzual') ? 'selected' : '' ?>>bruzual</option>
+                                    <option value="carora" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'carora') ? 'selected' : '' ?>>carora</option>
+                                    <option value="pariaguan" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'pariaguan') ? 'selected' : '' ?>>pariaguan</option>
+                                    <option value="cantaura" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'cantaura') ? 'selected' : '' ?>>cantaura</option>
+                                    <option value="sancarlos" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'sancarlos') ? 'selected' : '' ?>>sancarlos</option>
+                                    <option value="aragua" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'aragua') ? 'selected' : '' ?>>aragua</option>
+                                    <option value="altagracia" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'altagracia') ? 'selected' : '' ?>>altagracia</option>
+                                    <option value="puntademata" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'puntademata') ? 'selected' : '' ?>>puntademata</option>
                                     <option value="administracion" <?= (isset($usuario_data['sucursal']) && $usuario_data['sucursal'] == 'administracion') ? 'selected' : '' ?>>administracion</option>
                                 </select>
                             </div>

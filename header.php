@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,3 +19,9 @@
         <title>Carnet de Usuarios</title>
     </head>
 <body>
+    <nav class="navbar navbar-expand-lg header-light position-relative">
+        <div class="container-fluid d-flex align-items-center position-relative" style="min-height:56px;">
+            <img src="images/logo_arabito.png" alt="Logo izquierdo" style="height:32px;" />
+            <a class="navbar-brand fw-bold brand-center" href="index.php">CARNETS</a>
+        </div>
+    </nav>
