@@ -1,0 +1,591 @@
+
+    :root {
+        --primary: #2c3e50;
+        --secondary: #3498db;
+        --accent: #eb6f22;
+        --light: #f8f9fa;
+        --dark: #343a40;
+        --success: #28a745;
+        --danger: #dc3545;
+        --warning: #ffc107;
+        --info: #17a2b8;
+        --gray-100: #f8f9fa;
+        --gray-200: #e9ecef;
+        --gray-300: #dee2e6;
+        --gray-600: #6c757d;
+        --gray-800: #343a40;
+        --border-radius: 8px;
+        --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+    }
+
+    /* ==================== FUENTES ==================== */
+    @font-face {
+        font-family: 'Nunito';
+        src: url('../fonts/Nunito-Regular.ttf') format('truetype'),
+            url('../fonts/Nunito-Bold.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    body {
+        font-family: 'Nunito', sans-serif;
+        background-color: #f5f7f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* ==================== COMPONENTES GENERALES ==================== */
+    /* Header con gradiente */
+    .page-header {
+        background-color: transparent;
+        color: var(--primary);
+        padding: 1rem 0;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid var(--gray-300);
+    }
+
+    .page-header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .page-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin: 0;
+        color: var(--primary);
+    }
+
+    .page-subtitle {
+        font-size: 1rem;
+        color: var(--gray-600);
+        margin: 0.25rem 0 0 0;
+    }
+
+
+    @media (max-width: 768px) {
+        .page-header {
+            padding: 1rem;
+        }
+    }
+
+    /* Botones personalizados */
+    .btn-agregar {
+        background-color: #e14324 !important;
+        color: #fff !important;
+        border: none;
+        padding: 0.6rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: var(--transition);
+        box-shadow: 0 2px 6px rgba(225, 67, 36, 0.3);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .btn-agregar:hover {
+        background-color: #c4452c !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(225, 67, 36, 0.4);
+    }
+
+    .btn-arabito {
+        background-color: #eb6f22 !important;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+    }
+
+    .btn-arabito:hover {
+        background-color: #d8641d !important;
+        color: #fff;
+    }
+
+    .btn-arabito:focus {
+        color: #fff !important;
+        border: none;
+        box-shadow: 0 0 0 3px rgba(235, 111, 34, 0.25);
+    }
+
+    .text-arabito {
+        color: #eb6f22;
+    }
+
+    .text-modal {
+        color: #fff;
+    }
+
+    /* Header claro personalizado */
+    .header-light {
+        background-color: #ea6d2e;
+        color: #fff;
+    }
+
+    .header-light .navbar-brand,
+    .header-light .nav-link,
+    .header-light .nav-link:focus,
+    .header-light .nav-link:hover {
+        color: #fff;
+    }
+
+    /* Centrar título en header */
+    .brand-center {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Botón Regresar */
+    .button-back {
+        display: inline-block;
+        text-decoration: none;
+        color: inherit;
+        font-size: 1rem;
+        padding: 5px 10px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .button-back:hover {
+        color: #fff;
+        background-color: #eb6f22;
+    }
+
+    /* ==================== COMPONENTES DE TARJETA ==================== */
+    .card {
+        border: none;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        overflow: hidden;
+        background: white;
+    }
+
+    .card-header {
+        background-color: #f8f9fa;
+        border-bottom: 1px solid var(--gray-300);
+        padding: 1rem 1.5rem;
+        font-weight: 600;
+        color: var(--primary);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .card-body select, 
+    .card-body textarea, 
+    .card-body input {
+        border: 1px solid #a4a4a4;
+        border-radius: 5px;
+    }
+
+    label {
+        font-weight: 500;
+    }
+
+    /* ==================== TABLA ==================== */
+    .table-container {
+        padding: 0;
+    }
+
+    .custom-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    .custom-table thead th {
+        background-color: var(--primary);
+        color: white;
+        font-weight: 500;
+        padding: 1rem;
+        border: none;
+        position: sticky;
+        top: 0;
+    }
+
+    .custom-table tbody tr {
+        background-color: #fff;
+        transition: var(--transition);
+        cursor: pointer;
+    }
+
+    .custom-table tbody tr:hover {
+        background-color: rgba(182, 186, 189, 0.05);
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .custom-table tbody td {
+        padding: 1rem;
+        vertical-align: middle;
+        border-bottom: 1px solid var(--gray-200);
+    }
+
+    /* Estilos para DataTables */
+    div#table_length {
+        margin: 2px 0 10px 0;
+    }
+
+    div.dataTables_wrapper div.dataTables_info {
+        padding-top: 1em;
+        padding-bottom: .4em;
+    }
+
+    select.form-selected.form-select-sm:focus {
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+        margin-top: 10px;
+    }
+
+    .pagination > li > a, 
+    .pagination > li > span {
+        color: #000000a4;
+        font-weight: bold;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .pagination > li > a:hover, 
+    .pagination > li > span:hover {
+        color: #000000a4;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Números de Paginación */
+    .pagination > li.active > a, 
+    .pagination > li.active > span {
+        background-color: #eb6f22;
+        border-color: transparent;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .pagination > li.previous > a, 
+    .pagination > li.next > a {
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Botones "Anterior" y "Siguiente" */
+    .pagination > li.previous:hover > a, 
+    .pagination > li.next:hover > a {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Hora */
+    .hora {
+        font-size: 0.9em; 
+        color: #666;
+    }
+
+    /* ==================== BOTONES DE ACCIÓN ==================== */
+    .btn-action {
+        padding: 0.35rem 0.75rem;
+        border-radius: 4px;
+        font-size: 0.875rem;
+        transition: var(--transition);
+    }
+
+    .btn-barcode {
+        background-color: var(--info);
+        color: white;
+        border: none;
+    }
+
+    .btn-barcode:hover {
+        background-color: #138496;
+        color: white;
+    }
+
+    .btn-delete {
+        background-color: var(--danger);
+        color: white;
+        border: none;
+    }
+
+    .btn-delete:hover {
+        background-color: #bd2130;
+        color: white;
+    }
+
+    .status-badge {
+        padding: 0.35rem 0.65rem;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+
+    /* ==================== MODAL ==================== */
+    .modal-content {
+        border: none;
+        border-radius: var(--border-radius);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .modal-header {
+        background: linear-gradient(135deg, #eb6f22 0%, #ea6d2e 100%);
+        color: white;
+        border-top-left-radius: var(--border-radius);
+        border-top-right-radius: var(--border-radius);
+    }
+    .close {
+        color: white;
+        opacity: 0.8;
+        border: none;
+        border-radius: 8px;
+        background-color: #eb6f22;
+    }
+
+    .close:hover {
+        color: white;
+        opacity: 1;
+    }
+
+    .close span {
+        font-size: 20px;
+    }
+
+    /* ==================== CARNET (ESTILOS ORIGINALES) ==================== */
+    .carnet {
+        width: 90mm;
+        height: 60mm;
+        background-image: url('../images/fondo_carnet.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-align: center;
+        margin: auto;
+        position: relative;
+        border: 2px solid #000000b1; /* Borde añadido */
+        border-radius: 10px; /* Bordes redondeados opcionales */
+    }
+    
+    #modalNombre {
+        font-size: 5mm;
+        font-weight: 600;
+        padding-bottom: 0;
+        padding-top: 8.5mm;
+        text-transform: uppercase;
+    }
+    
+    .carnet-barcode svg {
+        height: 30mm;
+        width: 89mm;
+    }
+    
+    .carnet-header {
+        position: absolute;
+        top: 7mm;
+        left: 5mm;
+    }
+    
+    .carnet-logo {
+        height: 10mm;
+    }
+    
+    .carnet-logo-right {
+        position: absolute;
+        bottom: 6mm;
+        right: 3mm;
+        height: 11mm;
+    }
+
+    /* ==================== ELEMENTOS ADICIONALES ==================== */
+    .user-menu:hover {
+        background-color: #1c7fbd;
+        transition: .6s;
+    }
+
+    .style-swal {
+        width: 450px;
+    }
+
+    /* ==================== ANIMACIONES ==================== */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Loader para tabla */
+    .table-loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+    }
+
+    .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-left-color: var(--secondary);
+        border-radius: 50%;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    /* ==================== DATA TABLES ==================== */
+     /* Oculta los controles por defecto de DataTables */
+    .dataTables_length, .dataTables_filter {
+        display: none !important;
+    }
+    
+    /* Ajustes para la paginación e info */
+    .dataTables_info, .dataTables_paginate {
+        margin-top: 1rem;
+        padding: 0 1rem;
+    }
+    
+    /* Estilo para filas clickeables */
+    tr[data-href] {
+        cursor: pointer;
+    }
+    
+    tr[data-href]:hover {
+        background-color: #113c68 !important;
+    }
+    
+    /* Restaurar eventos para los botones reales */
+    .btn-action {
+        pointer-events: auto !important;
+    }
+
+    /* FORMULARIOS */
+    .button-back {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #f1f1f1;
+        color: #555;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .button-back:hover {
+        background-color: #e9e9e9;
+        color: #333;
+        transform: translateX(-3px);
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .page-header-form {
+        display: flex;
+        margin-bottom: 1rem;
+        margin-left: 100px;
+    }
+    
+    .header-content-form {
+        flex: 1;
+        margin-left: 1rem;
+    }
+    
+    /* Ajustes responsivos */
+    @media (max-width: 960px) {
+        .page-header-form {
+            display: flex;
+            align-items: center;
+            margin-left: 0px !important;
+        }
+        
+        .header-content-form {
+            margin-top: 1rem;
+        }
+    }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 768px) {
+        .custom-table thead {
+            display: none;
+        }
+        
+        .custom-table tbody tr {
+            display: block;
+            margin-bottom: 1rem;
+            border: 1px solid var(--gray-300);
+            border-radius: var(--border-radius);
+        }
+        
+        .custom-table tbody td {
+            display: block;
+            text-align: right;
+            padding: 0.75rem;
+            position: relative;
+            padding-left: 50%;
+        }
+        
+        .custom-table tbody td:before {
+            content: attr(data-label);
+            position: absolute;
+            left: 0.75rem;
+            width: calc(50% - 0.75rem);
+            padding-right: 10px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .btn-action {
+            margin-bottom: 0.25rem;
+            display: inline-block;
+        }
+    }
+
+    /* Modal y Carnet en móviles */
+    @media (max-width: 576px) {
+        /* Ajuste del ancho del modal en móvil */
+        #barcodeModal .modal-dialog {
+            max-width: 320px;
+            width: calc(100% - 2rem);
+            margin: 1rem auto;
+        }
+
+        #barcodeModal .modal-body {
+            padding: 12px;
+        }
+
+        /* Escalar el carnet dentro del modal */
+        #barcodeModal .carnet {
+            width: 290px;
+            height: 190px;
+            border-width: 1px;
+        }
+
+        #barcodeModal #modalNombre {
+            font-size: 16px;
+            padding-top: 19px;
+        }
+
+        #barcodeModal .carnet-header {
+            top: 10px;
+            left: 10px;
+        }
+
+        #barcodeModal .carnet-logo {
+            width: 28px;
+            height: 28px;
+        }
+
+        #barcodeModal .carnet-logo-right {
+            height: 34px;
+            right: 8px;
+            bottom: 10px;
+        }
+
+        #barcodeModal .carnet-barcode svg {
+            height: 80px;
+        }
+    }
