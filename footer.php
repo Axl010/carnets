@@ -4,6 +4,7 @@
     <script src="plugins/datatable/dataTables.bootstrap5.min.js"></script>
     <script src="plugins/datatable/dataTables.responsive.min.js"></script>
     <script src="plugins/datatable/responsive.bootstrap5.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
     <!--DataTables-->
     <script src="js/dataTable.js"></script>
     <!-- Bootstrap core JavaScript-->

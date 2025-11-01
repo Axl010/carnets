@@ -35,14 +35,14 @@ function imprimirCarnet() {
         <style>
           @font-face {
             font-family: 'Nunito';
-            src: url('fonts/Nunito-Regular.ttf') format('truetype'),
-                 url('fonts/Nunito-Bold.ttf') format('truetype');
+            src:  url('fonts/Nunito-Regular.ttf') format('truetype'),
+                  url('fonts/Nunito-Bold.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
           }
           body { text-align: center; font-family: 'Nunito'; }
           .carnet { 
-            width: 89mm; height: 60mm; background-image: url('images/fondo_carnet-recor.png');
+            width: 89mm; height: 60mm; background-image: url('images/fondo_carnet.png');
             background-size: cover; background-position: center; background-repeat: no-repeat;
             text-align: center; margin: auto; position: relative;
           }

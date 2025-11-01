@@ -46,7 +46,7 @@
 
     // Función para generar contraseña de 15 caracteres
     function generarContrasena() {
-        const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789ñÑáéíóúÁÉÍÓÚ';
+        const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         let contrasena = '';
         
         for (let i = 0; i < 15; i++) {

@@ -7,10 +7,8 @@
     $read_users->execute();
     $lista_usuarios = $read_users->fetchAll(PDO::FETCH_ASSOC);
 
-
-
     function validarContrasena($contrasena) {
-        return preg_match('/^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ]{15}$/u', $contrasena);
+        return preg_match('/^[A-Za-z0-9]{15}$/u', $contrasena);
     }
 
     // Agregar Usuario
@@ -40,7 +38,7 @@
             $insert_user->execute();
             $mensaje = "Usuario agregado exitosamente";
         } catch(Exception $e) {
-            $mensaje = "Error: " . $e->getMessage(); 
+            $mensaje = "Error: " . $e->getMessage();
         }
         header("Location: index.php?mensaje=" . urlencode($mensaje));
         exit();
